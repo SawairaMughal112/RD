@@ -3,165 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Belated Birthday & Promise</title>
+<title>Link Expired</title>
 <style>
-* {margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', sans-serif;}
 body {
-    background: linear-gradient(135deg, #2c3e50, #8e44ad, #e67e22, #16a085);
-    background-size: 400% 400%;
-    animation: gradientShift 30s ease infinite;
-    color:#f0f0f0;
-    overflow:hidden;
-    position:relative;
+    margin: 0;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom right, #f3f3f3, #e6e6e6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-@keyframes gradientShift {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+.card {
+    background: #ffffff;
+    padding: 35px 28px;
+    border-radius: 18px;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
 }
-
-.section {
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    text-align:center;
-    padding:30px;
-    opacity:0;
-    transform:translateY(20px);
-    transition: all 1s ease;
+h1 {
+    color: #444;
+    margin-bottom: 10px;
 }
-.section.show {opacity:1; transform:translateY(0);}
-h1 {font-size:36px; margin-bottom:20px; color:#fff; text-shadow:0 0 10px rgba(0,0,0,0.3);}
-p {max-width:600px; line-height:1.7; opacity:0; margin-bottom:15px; transition: opacity 1.2s ease, transform 0.8s ease; transform:translateY(15px); font-size:17px;}
-p.show {opacity:0.9; transform:translateY(0);}
-button {margin-top:20px; padding:10px 28px; border-radius:25px; border:1px solid #ccc; background:#2c3e50; color:#f0f0f0; cursor:pointer; transition:0.3s;}
-button:hover {background:#34495e; transform:scale(1.05);}
-#finalMessage {opacity:0; transition:1s ease; font-size:22px; margin-top:25px; color:#fff; font-weight:bold; text-shadow:0 0 10px #ff0;}
-#finalMessage.show {opacity:1;}
-
-/* Floating hearts - continuous background */
-.heart {
-    position:fixed;
-    bottom:-20px;
-    font-size:14px;
-    color:rgba(255,0,100,0.15);
-    animation-name:floatUp;
-    animation-iteration-count:infinite;
-    animation-timing-function:linear;
-    user-select:none;
-    pointer-events:none;
+.icon {
+    font-size: 55px;
+    margin: 15px 0;
 }
-@keyframes floatUp {
-    0% {transform: translateY(0) rotate(0deg); opacity:0;}
-    25% {opacity:0.3;}
-    50% {opacity:0.6;}
-    75% {opacity:0.3;}
-    100% {transform: translateY(-120vh) rotate(360deg); opacity:0;}
+.message {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
 }
-
-/* Cake styling */
-.cake-container {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    margin-top: 20px;
-    opacity:0;
-    transform: translateY(-50px);
-    transition: all 1s ease;
+.publisher {
+    margin-top: 22px;
+    font-size: 14px;
+    color: #777;
 }
-.cake-container.show {opacity:1; transform: translateY(0);}
-.cake {width:180px; height:100px; background:#ff6f61; border-radius:10px 10px 0 0; position:relative; margin:0 auto; box-shadow:0 5px 10px rgba(0,0,0,0.3);}
-.frosting {width:180px; height:20px; background:#fff; border-radius:10px 10px 0 0; position:absolute; top:-20px; left:0;}
-.candle {width:10px; height:25px; background:#ffeb3b; position:absolute; top:-25px; left:50%; transform: translateX(-50%); border-radius:2px;}
-.flame {width:6px; height:6px; background:#ff5722; position:absolute; top:-6px; left:50%; transform: translateX(-50%); border-radius:50%; animation: flicker 0.5s infinite alternate;}
-@keyframes flicker {0%{transform:translateX(-50%) scale(1)}100%{transform:translateX(-50%) scale(1.3)}}
-.cake-text {position:absolute; top:40px; width:100%; text-align:center; font-size:18px; font-weight:bold; color:#fff; text-shadow:0 0 5px rgba(0,0,0,0.5);}
 </style>
 </head>
 <body>
 
-<!-- Section 1: Belated Birthday + Cake -->
-<div class="section show">
-    <h1>🎉Happy Post Birthday!</h1>
-    <p class="show">So… January 29 came and went, and somehow I didn’t even hear about it 🤔</p>
-    <p style="opacity:0.85; margin-top:10px;">Better late than never! Here's a little cake for you 🍰</p>
-    <button onclick="scrollNext()">Next</button>
+<div class="card">
+    <div class="icon">⏳</div>
+    <h1>Link No Longer Available</h1>
+
+    <p class="message">
+        This page has been expired by the publisher and is no longer accessible.
+        The content is no longer available from the developer side.
+    </p>
+
+    <div class="publisher">
+        Publisher: <strong>Sawaira Mughal</strong>
+    </div>
 </div>
-
-<!-- Section 2: Promise Day + Reminder -->
-<div class="section">
-    <h1>🌙 As today is Promise Day</h1>
-    <p>Just like I forgive you for not telling me your birthday 😏…</p>
-    <p style="opacity:0.85; margin-top:10px;">Promise me one thing: never forget my birthday or any special day, and always let me know when your special days come. Deal?</p>
-    <button onclick="scrollNext()">I Promise</button>
-</div>
-
-<!-- Section 3: Final -->
-<div class="section">
-    <h1>💍 Hay !!!</h1>
-    <p>Thanks for being perfectly imperfect — may Allah make our journey together full of love and dua 🤍</p>
-    <p>Promise me your support, patience, and understanding, just as I promise mine to you.</p>
-    <button onclick="accept()" id="promiseBtn">Yes, I Promise 🤍</button>
-    <div id="finalMessage">✨Promise Sealed & Buliyega Nhi Kbhi !!! ✨</div>
-</div>
-
-<script>
-const sections=document.querySelectorAll(".section");
-let currentSection=0;
-function scrollNext(){
-    if(currentSection<sections.length-1){
-        currentSection++;
-        sections[currentSection].classList.add("show");
-        sections[currentSection].scrollIntoView({behavior:"smooth"});
-        const paragraphs=sections[currentSection].querySelectorAll("p");
-        paragraphs.forEach((p,i)=>setTimeout(()=>p.classList.add("show"),i*300));
-        if(sections[currentSection].querySelector("#cake")) {
-            sections[currentSection].querySelector("#cake").classList.add("show");
-        }
-    }
-}
-
-/* Continuous floating hearts in background */
-const heartCount = 150;
-for(let i = 0; i < heartCount; i++){
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "❤️💙💞💝";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = (Math.random() * 20 + 8) + "px";
-    heart.style.opacity = (Math.random() * 0.5 + 0.2);
-    heart.style.animationDuration = (5 + Math.random() * 10) + "s";
-    heart.style.animationDelay = Math.random() * 5 + "s";
-    document.body.appendChild(heart);
-}
-
-/* Confetti + final message */
-function accept(){
-    document.getElementById("finalMessage").classList.add("show");
-    document.getElementById("promiseBtn").style.display="none";
-
-    const totalConfetti = 300; // lots of confetti
-    for(let i=0; i<totalConfetti; i++){
-        const confetti = document.createElement("div");
-        confetti.className = "confetti";
-        confetti.style.width = confetti.style.height = (Math.random() * 8 + 4) + "px";
-        confetti.style.left = Math.random() * 100 + "vw";
-        confetti.style.background = `hsl(${Math.random() * 360}, 70%, 60%)`;
-        confetti.style.position = "fixed";
-        confetti.style.top = "-10px";
-        confetti.style.opacity = (Math.random() * 0.8 + 0.2);
-        confetti.style.borderRadius = "50%";
-        confetti.style.pointerEvents = "none";
-        confetti.style.zIndex = "9999";
-        confetti.style.animation = `fall ${2 + Math.random()*3}s linear forwards`;
-        document.body.appendChild(confetti);
-
-        setTimeout(()=>confetti.remove(), 4000);
-    }
-}
-</script>
 
 </body>
 </html>
