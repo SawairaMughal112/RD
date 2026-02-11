@@ -3,60 +3,298 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Link Expired</title>
+<title>Promise Day - Hamza 🤍</title>
+
 <style>
-body {
+* {
     margin: 0;
-    height: 100vh;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to bottom right, #f3f3f3, #e6e6e6);
+}
+
+body {
+    background: linear-gradient(120deg, #1a1a2e, #162447, #1f4068);
+    background-size: 400% 400%;
+    animation: backgroundShift 30s ease infinite;
+    color: #e0e0e0;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Gradient animation */
+@keyframes backgroundShift {
+    0% {background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
+}
+
+/* Section styling */
+.section {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.card {
-    background: #ffffff;
-    padding: 35px 28px;
-    border-radius: 18px;
-    max-width: 380px;
+    flex-direction: column;
     text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    padding: 40px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
 }
+
+.section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 h1 {
-    color: #444;
-    margin-bottom: 10px;
+    font-size: 38px;
+    margin-bottom: 20px;
+    color: #f0f0f0;
 }
-.icon {
-    font-size: 55px;
-    margin: 15px 0;
+
+p {
+    max-width: 650px;
+    line-height: 1.8;
+    opacity: 0;
+    margin-bottom: 20px;
+    transition: opacity 1.5s ease, transform 1s ease;
+    transform: translateY(20px);
 }
-.message {
-    font-size: 15px;
-    color: #555;
-    line-height: 1.6;
+
+p.show {
+    opacity: 0.9;
+    transform: translateY(0);
 }
-.publisher {
-    margin-top: 22px;
-    font-size: 14px;
-    color: #777;
+
+/* Buttons */
+button {
+    margin-top: 25px;
+    padding: 12px 30px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    background: #2c3e50;
+    color: #e0e0e0;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: #34495e;
+}
+
+/* Typing animation */
+#typing {
+    border-right: 2px solid #ccc;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    font-size: 18px;
+    color: rgba(255,255,255,0.1);
+    animation: floatUp 10s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 0; }
+    50% { opacity: 0.3; }
+    100% { transform: translateY(-110vh); opacity: 0; }
+}
+
+/* Confetti */
+.confetti {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    top: 0;
+    animation: fall 3s linear forwards;
+    border-radius: 50%;
+}
+
+@keyframes fall {
+    to { transform: translateY(100vh) rotate(720deg); }
+}
+
+/* Final message */
+#finalMessage {
+    opacity: 0;
+    transition: all 1.2s ease;
+    font-size: 22px;
+    margin-top: 30px;
+    color: #f0f0f0;
+}
+
+#finalMessage.show {
+    opacity: 1;
+}
+
+/* Sparkles */
+.sparkle {
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    opacity: 0.7;
+    border-radius: 50%;
+    animation: twinkle 4s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 0.2; transform: scale(0.5); }
+}
+
+/* Movable words */
+.movable-word {
+    position: absolute;
+    font-size: 18px;
+    color: rgba(255,255,255,0.3);
+    cursor: default;
+    transition: transform 0.2s ease;
+    user-select: none;
 }
 </style>
 </head>
 <body>
 
-<div class="card">
-    <div class="icon">⏳</div>
-    <h1>Link No Longer Available</h1>
+<!-- Sparkles -->
+<script>
+for (let i = 0; i < 50; i++) {
+    const sparkle = document.createElement("div");
+    sparkle.className = "sparkle";
+    sparkle.style.top = Math.random() * 100 + "vh";
+    sparkle.style.left = Math.random() * 100 + "vw";
+    sparkle.style.animationDuration = 2 + Math.random() * 3 + "s";
+    document.body.appendChild(sparkle);
+}
+</script>
 
-    <p class="message">
-        This page has been expired by the publisher and is no longer accessible.
-        The content is no longer available from the developer side.
-    </p>
+<!-- Movable words -->
+<script>
+const words = ["Hamza", "🤍", "Promise", "Day", "Happy", "Laugh", "Together"];
+for (let i = 0; i < words.length; i++) {
+    const w = document.createElement("div");
+    w.className = "movable-word";
+    w.innerText = words[i];
+    w.style.top = Math.random() * window.innerHeight + "px";
+    w.style.left = Math.random() * window.innerWidth + "px";
+    document.body.appendChild(w);
+}
+document.addEventListener("mousemove", e => {
+    document.querySelectorAll(".movable-word").forEach((w, i) => {
+        const dx = (e.clientX - window.innerWidth/2) / 50 * (i+1);
+        const dy = (e.clientY - window.innerHeight/2) / 50 * (i+1);
+        w.style.transform = `translate(${dx}px, ${dy}px)`;
+    });
+});
+</script>
 
-    <div class="publisher">
-        Publisher: <strong>Sawaira Mughal</strong>
+<!-- SECTION 1 -->
+<div class="section show">
+    <h1 id="typing"></h1>
+    <p class="show">Today is Promise Day… instead of just sending a message, I wanted to build something special for you🤍. </p>
+    <button onclick="scrollNext()">Begin</button>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section">
+    <h1>🌙 My Promise</h1>
+    <p>I’ll try my best to support you, respect you, and be patient.</p>
+    <p style="opacity:0.8; margin-top:15px;">I may forget things, be stubborn, or a little weird… but I’ll never stop choosing you. I know you might think this sounds a bit cringe, but not as much as that ‘Sparrow the Legend’ stuff.</p>
+    <button onclick="scrollNext()">Continue</button>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section">
+    <h1>💬 From My Heart</h1>
+    <p>I can be forgetful, stubborn, or dramatic sometimes.</p>
+    <p>Life won’t always be easy, but we’ll figure it out together… and yes, I’ll <b>sometimes</b> let you win an argument </p>
+    <p style="opacity:0.8; margin-top:15px;">I wasn’t lying when I said… “manega kaise nahi?” 🤭 I promise to listen to you and make you listen to me, laugh with you and make you laugh with me, and always try my best—even when I stumble.</p>
+    <button onclick="scrollNext()">One Last Thing</button>
+</div>
+
+<!-- SECTION 4 -->
+<div class="section">
+    <h1>💍 Hamza…</h1>
+    <p>Will you promise to walk this journey with me? Not perfect, not flawless… just real, together.</p>
+    <button onclick="accept()" id="promiseBtn">Yes, I Promise 🤍</button>
+    <div id="finalMessage">
+        ✨ Promise Sealed ✨ <br><br>
+        With honesty, effort, laughter, and dua. <br>
+        BHULNA NHI KBHI BHI !! 😶
     </div>
 </div>
+
+<script>
+/* Typing effect */
+const text = "Happy Promise Day, Hamza 🤍";
+let index = 0;
+function type() {
+    if (index < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(type, 70);
+    }
+}
+type();
+
+/* Scroll next section */
+const sections = document.querySelectorAll(".section");
+let currentSection = 0;
+function scrollNext() {
+    if (currentSection < sections.length - 1) {
+        currentSection++;
+        sections[currentSection].classList.add("show");
+        sections[currentSection].scrollIntoView({behavior: "smooth"});
+        // Reveal paragraph by paragraph
+        const paragraphs = sections[currentSection].querySelectorAll("p");
+        paragraphs.forEach((p, i) => setTimeout(() => p.classList.add("show"), i * 400));
+    }
+}
+
+/* Floating hearts */
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 15 + 8) + "px";
+    heart.style.opacity = 0.1;
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 8000);
+}, 1000);
+
+/* Confetti + final message */
+function accept() {
+    document.getElementById("finalMessage").classList.add("show");
+    document.getElementById("promiseBtn").style.display = "none";
+    createConfetti();
+}
+
+function createConfetti() {
+    for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement("div");
+        confetti.className = "confetti";
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.background = `hsl(${Math.random()*360}, 60%, 80%)`;
+        document.body.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 3000);
+    }
+}
+</script>
 
 </body>
 </html>
