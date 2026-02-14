@@ -3,60 +3,280 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Link Expired</title>
+<title>For Hamza 🤍</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
 <style>
-body {
-    margin: 0;
-    height: 100vh;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to bottom right, #f3f3f3, #e6e6e6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+:root{
+--gold:#C6A75E;
+--bg:#0b0b0b;
+--text:#F5E6D3;
+--letter-bg:#fff0f0;
+--letter-text:#5c0d0d;
 }
-.card {
-    background: #ffffff;
-    padding: 35px 28px;
-    border-radius: 18px;
-    max-width: 380px;
-    text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:radial-gradient(circle at center,#1a1a1a,#050505);
+font-family:'Montserrat',sans-serif;
+color:var(--text);
+overflow:hidden;
 }
-h1 {
-    color: #444;
-    margin-bottom: 10px;
+
+/* soft moving glow */
+body::before{
+content:"";
+position:fixed;
+width:500px;
+height:500px;
+background:radial-gradient(circle,var(--gold),transparent 70%);
+opacity:.06;
+animation:move 8s infinite alternate ease-in-out;
 }
-.icon {
-    font-size: 55px;
-    margin: 15px 0;
+@keyframes move{
+from{transform:translate(-120px,-120px);}
+to{transform:translate(120px,120px);}
 }
-.message {
-    font-size: 15px;
-    color: #555;
-    line-height: 1.6;
+
+.container{
+width:90%;
+max-width:600px;
+min-height:480px;
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
 }
-.publisher {
-    margin-top: 22px;
-    font-size: 14px;
-    color: #777;
+
+/* screens */
+.screen{
+position:absolute;
+width:100%;
+padding:45px 35px;
+background:rgba(255,255,255,.03);
+border:1px solid rgba(198,167,94,.25);
+border-radius:20px;
+backdrop-filter:blur(14px);
+box-shadow:0 0 40px rgba(198,167,94,.05);
+text-align:center;
+opacity:0;
+transform:scale(.96) translateY(20px);
+transition:.6s ease;
+pointer-events:none;
 }
+
+.active{
+opacity:1;
+transform:scale(1) translateY(0);
+pointer-events:auto;
+}
+
+h1{
+font-family:'Great Vibes',cursive;
+font-size:42px;
+color:var(--gold);
+margin-bottom:18px;
+}
+
+p{
+line-height:1.9;
+font-size:15px;
+opacity:.95;
+}
+
+.gif{
+width:160px;
+margin:18px auto;
+border-radius:12px;
+display:block;
+opacity:.9;
+}
+
+.btn{
+margin-top:25px;
+padding:12px 28px;
+border-radius:50px;
+border:1px solid var(--gold);
+background:transparent;
+color:var(--gold);
+cursor:pointer;
+transition:.4s;
+font-size:14px;
+}
+
+.btn:hover{
+background:var(--gold);
+color:#000;
+transform:translateY(-3px);
+}
+
+/* floating hearts */
+.heart{
+position:fixed;
+animation:floatUp linear infinite;
+opacity:.6;
+font-size:20px;
+z-index:10;
+}
+@keyframes floatUp{
+0%{transform:translateY(100vh);opacity:0;}
+20%{opacity:.6;}
+100%{transform:translateY(-10vh);opacity:0;}
+}
+
+/* music */
+.music{
+position:fixed;
+top:20px;
+right:20px;
+cursor:pointer;
+font-size:14px;
+}
+.music:hover{color:var(--gold)}
+
+/* letter screen */
+.letter-screen{
+background:linear-gradient(135deg,#fff0f0,#ffe3e3);
+color:var(--letter-text);
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+padding:30px;
+border-radius:18px;
+box-shadow:0 20px 50px rgba(214,40,40,.2);
+}
+
+.letter-box{
+background:#fff;
+padding:40px 35px;
+border-radius:18px;
+max-height:70vh;
+overflow-y:auto;
+border-top:6px solid #e63946;
+border-bottom:6px solid #e63946;
+text-align:center;
+font-family:'Cormorant Garamond',serif;
+line-height:1.8;
+color:#5c0d0d;
+position:relative;
+}
+
+.letter-box h1{
+font-family:'Great Vibes',cursive;
+font-size:48px;
+color:#d62828;
+margin-bottom:25px;
+}
+
+.letter-box p{
+margin-top:10px;
+font-size:18px;
+line-height:2;
+text-align:left;
+}
+
 </style>
 </head>
+
 <body>
 
-<div class="card">
-    <div class="icon">⏳</div>
-    <h1>Link No Longer Available</h1>
+<div class="music" onclick="toggleMusic()">🎵 music</div>
+<audio id="bgm" loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_9c0c6f1eaf.mp3?filename=romantic-background-112191.mp3">
+</audio>
 
-    <p class="message">
-        This page has been expired by the publisher and is no longer accessible.
-        The content is no longer available from the developer side.
-    </p>
+<div class="container">
 
-    <div class="publisher">
-        Publisher: <strong>Sawaira Mughal</strong>
-    </div>
+<!-- Screen 1 -->
+<div class="screen active" id="s1">
+<h1>Hay 😌</h1>
+<p>Happy valentines day ♥️</p>
+<img class="gif" src="https://images.hitpaw.com/topics/gif-tips/kissing-i-love-you-gif.gif">
+
+<button class="btn" onclick="nextScreen(2)">Will you be my valentine? 🤍</button>
 </div>
+
+<!-- Screen 2 -->
+<div class="screen" id="s2">
+<h1>Great 🙂‍↕️👍👍👍</h1>
+<p>
+Best decision you ever made. 😄 😊
+</p>
+<img class="gif" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/518d5591985829.5e40260db8693.gif">
+<button class="btn" onclick="nextScreen(3)">Okay Continue 😂</button>
+</div>
+
+<!-- Screen 3 -->
+<div class="screen" id="s3">
+<h1>A Small Gift 🎁</h1>
+<p>Not expensive. Not dramatic. Just honest… and slightly demanding.</p>
+<img class="gif" src="https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUyNjhyZGd1Y3I2NWprb20wMnBnZGxlNWI0b3RpOHQ5bm9zOXM2N254OSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/108M7gCS1JSoO4/200w.gif">
+
+<button class="btn" onclick="nextScreen(4)">Open Your Letter 💌</button>
+</div>
+
+<!-- Screen 4 - Letter -->
+<div class="screen" id="s4">
+<div class="letter-screen">
+<div class="letter-box">
+<h1>For You 🫵 🤍</h1>
+<p>
+I may not be the girl you once imagined or wanted, but I promise you something far more real — I will be your girl, always. 🤍
+</p>
+<p>
+I will always have pure intentions for you, and I will always have support to offer you in every situation.
+</p>
+<p>
+I know that sometimes you get angry easily, and I do too 😅, so please remember this — Allah gave us each other so that we don’t spoil the life of any kind girl or boy.
+</p>
+<p>
+I want you to know that I am not perfect either. I have my flaws and issues, just like you, but I promise to always work on myself and keep my heart clean for you.
+</p>
+<p>
+I ask for your side, always, and I promise that my side will always remain honest, respectful, and full of care.
+</p>
+<p>
+Stay calm, reply a little faster, and try not to get hyper over small things. 😌
+</p>
+<p>
+With all my heart,<br>
+— Sawaira
+</p>
+</div>
+</div>
+</div>
+
+</div>
+
+<script>
+function nextScreen(n){
+document.querySelector(".active").classList.remove("active");
+document.getElementById("s"+n).classList.add("active");
+createHearts();
+}
+
+function createHearts(){
+for(let i=0;i<50;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML=Math.random()>0.5 ? "❤️" : "🤍";
+h.style.left=Math.random()*100+"vw";
+h.style.fontSize=(Math.random()*25+15)+"px";
+h.style.animationDuration=(Math.random()*6+5)+"s";
+document.body.appendChild(h);
+}
+}
+
+const music=document.getElementById("bgm");
+function toggleMusic(){ music.paused ? music.play() : music.pause(); }
+</script>
 
 </body>
 </html>
